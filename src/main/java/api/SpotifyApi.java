@@ -7,7 +7,7 @@ import static api.ApiEndPoints.ALBUM;
 import static api.ApiEndPoints.TRACK;
 import static api.ApiInquiryForm.SEARCH;
 import static api.SpotifyApiParam.*;
-import static con.Constants.config;
+import static selen.settings.Settings.*;
 import static utils.APIUtils.getRequest;
 import static utils.APIUtils.postRequest;
 
@@ -20,7 +20,7 @@ public class SpotifyApi {
     }
 
     public static ResponseModel getToken(String clientId, String clientSecret) {
-        return postRequest(config.get("apiUrlToken").toString(),
+        return postRequest(settings.get("apiUrlToken").toString(),
                 new BasicNameValuePair(GRANT_TYPE.getValue(), "client_credentials"),
                 new BasicNameValuePair(CLIENT_ID.getValue(), clientId),
                 new BasicNameValuePair(CLIENT_SECRET.getValue(), clientSecret));

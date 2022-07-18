@@ -8,7 +8,9 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class JsonUtils {
 
@@ -67,5 +69,14 @@ public class JsonUtils {
             e.printStackTrace();
         }
         return object;
+    }
+
+    public static Map<String, Object> JSONObjectToMap(JSONObject object) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        for (String key : (Iterable<String>) object.keySet()) {
+            Object value = object.get(key);
+            map.put(key, value);
+        }
+        return map;
     }
 }

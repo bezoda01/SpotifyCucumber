@@ -4,6 +4,6 @@ Feature: Login to Spotify
   Scenario: Login with valid credentials
 
     Given User is on Main page
-    When User enters username as "LOGIN"
-    And User enters password as "PASSWORD"
+    When User enters username as ""
+    And User enters password as ""
     Then User should be able to login successfully

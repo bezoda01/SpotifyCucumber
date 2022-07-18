@@ -15,16 +15,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static base.driver.Loggerr.log;
-import static base.driver.Loggerr.logPOSTBody;
-import static con.Constants.config;
+import static selen.Loggerr.*;
+import static selen.settings.Settings.*;
 
 public class APIUtils {
 
     private static HttpClient client = HttpClientBuilder.create().build();
 
     public static ResponseModel getRequest(String inquiry) {
-        HttpGet get = new HttpGet(config.get("apiUrl") + inquiry);
+        HttpGet get = new HttpGet(settings.get("apiUrl") + inquiry);
         HttpResponse response = null;
         String body = null;
         try {
@@ -42,7 +41,7 @@ public class APIUtils {
     }
 
     public static ResponseModel getRequest(String inquiry, String mainHeader, String valueHeader) {
-        String inquiryTemp = config.get("apiUrl") + inquiry;
+        String inquiryTemp = settings.get("apiUrl") + inquiry;
         log("Выполнение запроса: \n" + inquiryTemp);
         HttpGet get = new HttpGet(inquiryTemp);
         HttpResponse response = null;
@@ -64,7 +63,6 @@ public class APIUtils {
 
     public static ResponseModel postRequest(String inquiry, NameValuePair... params) {
         log("Выполнение запроса: \n" + inquiry);
-        logPOSTBody(params);
         HttpPost httppost = new HttpPost(inquiry);
         HttpResponse response = null;
         String body = null;

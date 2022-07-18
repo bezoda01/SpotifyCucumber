@@ -1,0 +1,25 @@
+{
+  "browserName": "chrome",
+  "url": "https://open.spotify.com/",
+  "pathScreen": "src/main/resources/shot/",
+  "apiUrl": "https://api.spotify.com/v1",
+  "apiUrlToken": "https://accounts.spotify.com/api/token",
+  "chrome": {
+    "incognito": "true",
+    "headless": "false",
+    "fullScreen": "false"
+  },
+  "firefox": {
+    "incognito": "true",
+    "headless": "false",
+    "maximized": "true"
+  },
+  "timeouts": {
+    "timeoutImplicit" : 0,
+    "timeoutCondition" : 15,
+    "timeoutScript" : 10,
+    "timeoutPageLoad" : 60,
+    "timeoutPollingInterval": 300,
+    "timeoutCommand": 120
+  }
+}

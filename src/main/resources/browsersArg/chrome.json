@@ -1,0 +1,5 @@
+{
+  "incognito": "--incognito",
+  "headless": "--headless",
+  "fullScreen": "--start-fullscreen"
+}

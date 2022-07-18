@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import java.nio.file.Paths;
 
-import static base.driver.BrowserUtils.getHostName;
-import static con.Constants.config;
+import static selen.settings.Settings.*;
+import static selen.Selen.*;
 import static utils.AllureUtils.addAttachment;
 
 @CucumberOptions(
@@ -23,9 +23,9 @@ public class RunnerCucumberTest extends AbstractTestNGCucumberTests {
     public void SetEnv() {
         AllureEnvironmentWriter.allureEnvironmentWriter(
                 ImmutableMap.<String, String> builder()
-                        .put("Browser", System.getenv("BROWSER"))
-                        .put("ENV", getHostName())
-                        .put("URL", config.get("url").toString())
+                        .put("Browser", settings.get("browserName").toString())
+                        .put("ENV", browser().getHostName())
+                        .put("URL", settings.get("url").toString())
                         .build());
     }
 

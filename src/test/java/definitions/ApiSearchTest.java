@@ -9,7 +9,7 @@ import models.ResponseModel;
 import models.TokenModel;
 
 import static api.SpotifyApi.getToken;
-import static con.Constants.testData;
+import static selen.settings.Settings.testData;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static utils.JsonUtils.jsonStringToObject;

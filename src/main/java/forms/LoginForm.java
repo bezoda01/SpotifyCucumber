@@ -1,18 +1,19 @@
 package forms;
 
-import base.driver.BaseForm;
-import base.elements.Button;
-import base.elements.TextField;
 import org.openqa.selenium.By;
+import selen.base.BaseForm;
+import selen.base.elements.Button;
+import selen.base.elements.TextField;
+import selen.waits.TypeWait;
 
 public class LoginForm extends BaseForm {
 
-    private final TextField usernameField = new TextField(By.id("login-username"), "username field");
-    private final TextField passwordField = new TextField(By.id("login-password"), "password field");
-    private final Button logOnBtn = new Button(By.id("login-button"), "log on button");
+    private final TextField usernameField = getIFactory().getTextField(By.id("login-username"), "username field");
+    private final TextField passwordField = getIFactory().getTextField(By.id("login-password"), "password field");
+    private final Button logOnBtn = getIFactory().getButton(By.id("login-button"), "log on button");
 
     public LoginForm() {
-        super(new TextField(By.xpath("//div[@data-testId = 'login-container']"), "login"), "login");
+        super(new TextField(By.xpath("//div[@data-testId = 'login-container']"), "login", TypeWait.PRESENCE_OF_ELEMENT_LOCATED));
     }
 
     public void inputUsername(String username) {
@@ -21,6 +22,6 @@ public class LoginForm extends BaseForm {
 
     public void inputPassword(String password) {
         passwordField.sendText(password);
-        logOnBtn.clickBtn();
+        logOnBtn.click();
     }
 }
